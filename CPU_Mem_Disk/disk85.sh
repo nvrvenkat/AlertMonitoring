@@ -32,7 +32,7 @@ create_disk_alert_policy_json() {
     {
       "displayName": "$instance_name - Disk utilization 85%",
       "conditionThreshold": {
-        "filter": "resource.type = \"gce_instance\" AND resource.labels.instance_id = \"$instance_id\" AND metric.type = \"agent.googleapis.com/disk/percent_used\"",
+        "filter": "resource.type = \"gce_instance\" AND resource.labels.instance_id = \"$instance_id\" AND metric.type = \"agent.googleapis.com/disk/percent_used\" AND metric.labels.state = \"used\"",
         "aggregations": [
           {
             "alignmentPeriod": "600s",
@@ -45,7 +45,7 @@ create_disk_alert_policy_json() {
         "trigger": {
           "count": 1
         },
-        "thresholdValue": 85
+        "thresholdValue": 75
       }
     }
   ],

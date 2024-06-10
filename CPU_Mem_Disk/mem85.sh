@@ -26,11 +26,11 @@ create_memory_alert_policy_json() {
   local project_id=$(get_project_id)
   local alert_policy_json=$(cat <<EOF
 {
-  "displayName": "$instance_name - Memory utilization 75%",
+  "displayName": "$instance_name - Memory utilization 85%",
   "userLabels": {},
   "conditions": [
     {
-      "displayName": "$instance_name - Memory utilization 75%",
+      "displayName": "$instance_name - Memory utilization 85%",
       "conditionThreshold": {
         "filter": "resource.type = \"gce_instance\" AND resource.labels.instance_id = \"$instance_id\" AND metric.type = \"agent.googleapis.com/memory/percent_used\" AND metric.labels.state = \"used\"",
         "aggregations": [
